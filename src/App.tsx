@@ -1,7 +1,6 @@
 import React from 'react';
+import MainPage from './pages/main.tsx';
 
-function App(): React.JSX.Element {
-  return <></>;
-}
+const App = (): React.JSX.Element => <MainPage />;
 
 export default App;
