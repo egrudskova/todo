@@ -1,0 +1,3 @@
+echo 'pre-commit check has started...'
+npm run lint:fix && npm run format:fix
+npm run check-types
