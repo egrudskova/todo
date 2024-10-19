@@ -1,10 +1,11 @@
-import { Button, Stack, TextField } from '@mui/material';
+import { Button, Snackbar, Stack, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useAppDispatch } from '../store';
 import { addTodo } from '../features';
 import { v4 as uuidv4 } from 'uuid';
 
 export const Input = (): React.JSX.Element => {
+  const [isSnackbarVisible, setIsSnackbarVisible] = useState<boolean>(false);
   const [inputText, setInputText] = useState<string>('');
   const dispatch = useAppDispatch();
 
@@ -13,6 +14,10 @@ export const Input = (): React.JSX.Element => {
   };
 
   const addNewTodo = (): void => {
+    if (inputText.trim().length === 0) {
+      setIsSnackbarVisible(true);
+      return;
+    }
     dispatch(addTodo({ text: inputText, id: uuidv4(), isEdited: false, isCompleted: false }));
     setInputText('');
   };
@@ -36,6 +41,14 @@ export const Input = (): React.JSX.Element => {
       <Button variant="contained" onClick={addNewTodo}>
         Add
       </Button>
+      <Snackbar
+        open={isSnackbarVisible}
+        autoHideDuration={2000}
+        onClose={() => {
+          setIsSnackbarVisible(false);
+        }}
+        message="Cannot add empty todo, please add something to your todo"
+      />
     </Stack>
   );
 };
