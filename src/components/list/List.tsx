@@ -1,11 +1,15 @@
 import React from 'react';
+import { useAppSelector } from '../../store';
+import { selectFilteredTodosIds } from '../../features';
 import { ListItem } from './ListItem.tsx';
-import { ListProps } from './types.ts';
 
-export const List = ({ todos }: ListProps): React.JSX.Element => (
-  <>
-    {todos.map((todo) => {
-      return <ListItem key={todo.id} todo={todo} />;
-    })}
-  </>
-);
+export const List = (): React.JSX.Element => {
+  const ids = useAppSelector(selectFilteredTodosIds);
+  return (
+    <>
+      {ids.map((id) => {
+        return <ListItem key={id} id={id} />;
+      })}
+    </>
+  );
+};

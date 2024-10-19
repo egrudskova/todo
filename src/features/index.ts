@@ -1,7 +1,8 @@
 export {
-  selectTodos,
   selectUnfinishedTodosCount,
   selectActiveFilter,
+  selectTodoById,
+  selectFilteredTodosIds,
   changeActiveFilter,
   addTodo,
   removeTodo,

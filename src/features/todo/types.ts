@@ -10,3 +10,9 @@ export enum Filter {
   Active = 'Active',
   Completed = 'Completed',
 }
+
+export interface TodosState {
+  filteredTodosIds: Todo['id'][];
+  activeFilter: Filter;
+  todos: Todo[];
+}

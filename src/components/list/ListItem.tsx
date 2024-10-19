@@ -1,13 +1,15 @@
 import { Button, Checkbox, Stack, TextField, Typography } from '@mui/material';
 import { editTodoText, removeTodo, toggleTodoIsCompleted, toggleTodoIsEdited } from '../../features';
 import { Delete, Edit } from '@mui/icons-material';
-import React, { useState } from 'react';
-import { useAppDispatch } from '../../store';
+import React, { memo, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../store';
 import { ListItemProps } from './types.ts';
 import { StyledButton } from './ListItem.styled.tsx';
+import { selectTodoById } from '../../features';
 
-export const ListItem = ({ todo }: ListItemProps): React.JSX.Element => {
-  const { id, text, isCompleted, isEdited } = todo;
+export const ListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
+  const todo = useAppSelector((state) => selectTodoById(state, id));
+  const { text, isCompleted, isEdited } = todo;
   const [editedText, setEditedText] = useState<string>(text);
   const dispatch = useAppDispatch();
 
@@ -77,4 +79,4 @@ export const ListItem = ({ todo }: ListItemProps): React.JSX.Element => {
       </Button>
     </Stack>
   );
-};
+});
