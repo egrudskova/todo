@@ -3,6 +3,7 @@ export {
   selectActiveFilter,
   selectTodoById,
   selectFilteredTodosIds,
+  selectCompletedTodosCount,
   changeActiveFilter,
   addTodo,
   removeTodo,

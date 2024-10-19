@@ -1,15 +1,18 @@
 import React from 'react';
 import { Button, Stack } from '@mui/material';
-import { useAppDispatch } from '../../store';
-import { removeCompletedTodos } from '../../features';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { removeCompletedTodos, selectCompletedTodosCount } from '../../features';
 import { Filters } from './Filters.tsx';
 import { Stats } from './Stats.tsx';
 
 export const FilterPanel = (): React.JSX.Element => {
   const dispatch = useAppDispatch();
+  const completedTodosCount = useAppSelector(selectCompletedTodosCount);
 
   const handleClearButtonClick = (): void => {
-    dispatch(removeCompletedTodos());
+    if (completedTodosCount) {
+      dispatch(removeCompletedTodos());
+    }
   };
 
   return (

@@ -67,6 +67,10 @@ export const selectUnfinishedTodosCount = createSelector(
   [selectTodos],
   (todos: Todo[]) => todos.filter((todo) => !todo.isCompleted).length
 );
+export const selectCompletedTodosCount = createSelector(
+  [selectTodos],
+  (todos: Todo[]) => todos.filter((todo) => todo.isCompleted).length
+);
 
 export const {
   changeActiveFilter,
