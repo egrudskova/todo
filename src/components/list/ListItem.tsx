@@ -1,8 +1,8 @@
 import { Button, Checkbox, Stack, TextField, Typography } from '@mui/material';
-import { editTodoText, removeTodo, toggleTodoIsCompleted, toggleTodoIsEdited } from '../../features/todo/todosSlice.ts';
+import { editTodoText, removeTodo, toggleTodoIsCompleted, toggleTodoIsEdited } from '../../features';
 import { Delete, Edit } from '@mui/icons-material';
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../store/hooks.ts';
+import { useAppDispatch } from '../../store';
 import { ListItemProps } from './types.ts';
 import { StyledButton } from './ListItem.styled.tsx';
 
@@ -43,6 +43,8 @@ export const ListItem = ({ todo }: ListItemProps): React.JSX.Element => {
       />
       {isEdited ? (
         <TextField
+          autoFocus
+          label="Press enter or edit button to save changes"
           variant="standard"
           value={editedText}
           onChange={handleTextChange}

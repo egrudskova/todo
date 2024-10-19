@@ -1,4 +1,4 @@
-import { Todo } from '../../features/todo/types.ts';
+import { Todo } from '../../features';
 import { ButtonProps as MuiButtonProps } from '@mui/material/Button/Button';
 
 export interface ListItemProps {

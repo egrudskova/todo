@@ -5,5 +5,5 @@ import { Button, styled } from '@mui/material';
 export const StyledButton: StyledComponent<styledButtonProps> = styled(Button)(({ isEdited }: customButtonProps) => ({
   minWidth: 'auto',
   backgroundColor: isEdited ? 'rgba(25, 118, 210, 0.3)' : 'transparent',
-  borderColor: isEdited ? 'rgba(25, 118, 210, 0.5)' : 'transparent',
+  borderColor: 'transparent',
 }));

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Divider, Paper } from '@mui/material';
-import { Heading, Input as TodoInput, List as TodoList } from '../components/';
-import { useAppSelector } from '../store/hooks.ts';
-import { selectTodos } from '../features/todo/todosSlice.ts';
+import { Filters, Heading, Input as TodoInput, List as TodoList } from '../components/';
+import { useAppSelector } from '../store';
+import { selectFilteredTodos } from '../features/todo/todosSlice.ts';
 
-const MainPage = (): React.JSX.Element => {
-  const todos = useAppSelector(selectTodos);
+export const MainPage = (): React.JSX.Element => {
+  const todos = useAppSelector(selectFilteredTodos);
   return (
     <Container maxWidth={'sm'}>
       <Heading />
@@ -14,9 +14,8 @@ const MainPage = (): React.JSX.Element => {
         <Divider />
         <TodoList todos={todos}></TodoList>
         <Divider />
+        <Filters />
       </Paper>
     </Container>
   );
 };
-
-export default MainPage;

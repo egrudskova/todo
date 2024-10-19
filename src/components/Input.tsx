@@ -1,10 +1,10 @@
 import { Button, Stack, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { useAppDispatch } from '../store/hooks.ts';
-import { addTodo } from '../features/todo/todosSlice.ts';
+import { useAppDispatch } from '../store';
+import { addTodo } from '../features';
 import { v4 as uuidv4 } from 'uuid';
 
-const Input = (): React.JSX.Element => {
+export const Input = (): React.JSX.Element => {
   const [inputText, setInputText] = useState<string>('');
   const dispatch = useAppDispatch();
 
@@ -30,7 +30,7 @@ const Input = (): React.JSX.Element => {
         style={{ flex: 1 }}
         value={inputText}
         onChange={handleInputChange}
-        placeholder="What needs to be done?"
+        label="What needs to be done?"
         onKeyUp={handleKeyUp}
       />
       <Button variant="contained" onClick={addNewTodo}>
@@ -39,5 +39,3 @@ const Input = (): React.JSX.Element => {
     </Stack>
   );
 };
-
-export { Input };
