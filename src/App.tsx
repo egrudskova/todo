@@ -1,6 +1,9 @@
 import React from 'react';
-import { MainPage } from './pages';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import routes from './routes/routes.tsx';
 
-const App = (): React.JSX.Element => <MainPage />;
+const router = createBrowserRouter(routes);
+
+const App = (): React.JSX.Element => <RouterProvider router={router} />;
 
 export default App;
