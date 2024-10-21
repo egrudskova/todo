@@ -2,7 +2,7 @@ import React from 'react';
 import { queries, render, RenderResult } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore, Store } from '@reduxjs/toolkit';
-import { reducer, RootState } from '../store/store.ts';
+import { reducer, RootState } from '../store';
 import { Filter, Todo } from '../features';
 import { v4 as uuidv4 } from 'uuid';
 

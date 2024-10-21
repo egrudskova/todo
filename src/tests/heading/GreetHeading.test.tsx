@@ -9,7 +9,7 @@ Object.defineProperty(window, 'localStorage', {
   },
 });
 
-describe('Greet component', () => {
+describe('Greet heading component', () => {
   beforeEach(() => {
     mockGetItem.mockClear();
   });

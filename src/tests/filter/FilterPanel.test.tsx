@@ -1,9 +1,8 @@
 import { screen, fireEvent } from '@testing-library/react';
 import { FilterPanel } from '../../components';
-import { vi } from 'vitest';
 import { createMockState, renderWithRedux, todosMockTest } from '../utils.tsx';
 
-describe('FilterPanel component', () => {
+describe('Filter panel component', () => {
   it('should render the Stats, Filters, and Clear completed button', () => {
     renderWithRedux(<FilterPanel />, { preloadedState: createMockState(todosMockTest) });
     expect(

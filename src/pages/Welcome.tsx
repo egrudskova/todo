@@ -8,5 +8,3 @@ export const WelcomePage = (): React.JSX.Element => (
     <UsernameInput />
   </Container>
 );
-
-export default WelcomePage;

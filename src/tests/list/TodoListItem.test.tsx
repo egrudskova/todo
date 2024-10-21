@@ -2,7 +2,7 @@ import { screen, fireEvent } from '@testing-library/react';
 import { TodoListItem } from '../../components';
 import { createMockState, renderWithRedux, todosMockTest } from '../utils.tsx';
 
-describe('ListItem component', () => {
+describe('Todo list item component', () => {
   const todo = todosMockTest[0];
   it('should display the todo item found by id', () => {
     renderWithRedux(<TodoListItem id={todo['id']} />, { preloadedState: createMockState(todosMockTest) });

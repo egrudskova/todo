@@ -3,7 +3,7 @@ import { TodoInput } from '../../components';
 import { addTodo } from '../../features';
 import { createMockState, renderWithRedux } from '../utils.tsx';
 
-describe('TodoInput component', () => {
+describe('Todo input component', () => {
   it('should render the input and button', () => {
     renderWithRedux(<TodoInput />);
 

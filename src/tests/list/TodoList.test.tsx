@@ -2,9 +2,9 @@ import { TodoList } from '../../components';
 import { createMockState, renderWithRedux, todosMockTest } from '../utils.tsx';
 import { RootState } from '../../store';
 import { fireEvent, screen } from '@testing-library/react';
-import { TodoPage } from '../../pages/Todo.tsx';
+import { TodoPage } from '../../pages';
 
-describe('List component', () => {
+describe('Todo list component', () => {
   it('should render a list of todos for every id', () => {
     const { store } = renderWithRedux(<TodoList />, { preloadedState: createMockState(todosMockTest) });
     const state = store.getState() as RootState;
