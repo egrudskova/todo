@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 
-export const Heading = (): React.JSX.Element => (
+export const AppHeading = (): React.JSX.Element => (
   <Typography
     variant="subtitle1"
     style={{

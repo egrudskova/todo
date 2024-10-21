@@ -1,13 +1,12 @@
-import { Button, Checkbox, Stack, TextField, Typography } from '@mui/material';
+import { Checkbox, IconButton, ListItem, ListItemText, TextField } from '@mui/material';
 import { editTodoText, removeTodo, toggleTodoIsCompleted, toggleTodoIsEdited } from '../../features';
 import { Delete, Edit } from '@mui/icons-material';
 import React, { memo, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { ListItemProps } from './types.ts';
-import { StyledButton } from './ListItem.styled.tsx';
 import { selectTodoById } from '../../features';
 
-export const ListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
+export const TodoListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
   const todo = useAppSelector((state) => selectTodoById(state, id));
   const { text, isCompleted, isEdited } = todo;
   const [editedText, setEditedText] = useState<string>(text);
@@ -35,12 +34,27 @@ export const ListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
   };
 
   return (
-    <Stack direction={'row'} padding={1} spacing={1}>
+    <ListItem
+      sx={{ maxHeight: '58px' }}
+      secondaryAction={
+        <>
+          <IconButton aria-label="edit" onClick={toggleEditMode} sx={{ color: isEdited ? 'blue' : 'gray' }}>
+            <Edit />
+          </IconButton>
+          <IconButton aria-label="delete" onClick={handleDeleteButtonClick}>
+            <Delete />
+          </IconButton>
+        </>
+      }
+    >
       <Checkbox
         aria-label={'label ' + text}
         checked={isCompleted}
         onChange={() => {
           dispatch(toggleTodoIsCompleted({ id }));
+        }}
+        style={{
+          paddingRight: 12,
         }}
       />
       {isEdited ? (
@@ -54,29 +68,11 @@ export const ListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
           style={{
             flex: 1,
             alignSelf: 'center',
-            paddingLeft: 12,
           }}
-        ></TextField>
+        />
       ) : (
-        <Typography
-          variant="subtitle2"
-          style={{
-            flex: 1,
-            alignSelf: 'center',
-            fontSize: 18,
-            paddingLeft: 12,
-          }}
-          onClick={toggleEditMode}
-        >
-          {isCompleted ? <s>{text}</s> : text}
-        </Typography>
+        <ListItemText onClick={toggleEditMode}>{isCompleted ? <s>{text}</s> : text}</ListItemText>
       )}
-      <StyledButton isEdited={isEdited} variant="outlined" size="small" onClick={toggleEditMode}>
-        <Edit />
-      </StyledButton>
-      <Button sx={{ minWidth: 'auto' }} size="small" onClick={handleDeleteButtonClick}>
-        <Delete />
-      </Button>
-    </Stack>
+    </ListItem>
   );
 });

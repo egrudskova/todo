@@ -1,15 +1,16 @@
 import React from 'react';
 import { useAppSelector } from '../../store';
 import { selectFilteredTodosIds } from '../../features';
-import { ListItem } from './ListItem.tsx';
+import { TodoListItem } from './TodoListItem.tsx';
+import { List } from '@mui/material';
 
-export const List = (): React.JSX.Element => {
+export const TodoList = (): React.JSX.Element => {
   const ids = useAppSelector(selectFilteredTodosIds);
   return (
-    <>
+    <List>
       {ids.map((id) => {
-        return <ListItem key={id} id={id} />;
+        return <TodoListItem key={id} id={id} />;
       })}
-    </>
+    </List>
   );
 };

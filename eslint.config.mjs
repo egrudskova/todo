@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 });
 
 export default [{
-    ignores: ["**/dist", 'vite.config.ts'],
+    ignores: ["**/dist", 'vite.config.ts', 'vitest.config.ts', 'setupTests.ts'],
 }, ...fixupConfigRules(compat.extends(
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
