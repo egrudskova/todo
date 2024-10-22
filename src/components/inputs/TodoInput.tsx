@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Snackbar, Stack, TextField } from '@mui/material';
+import { Button, Stack, TextField } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
 import { useAppDispatch } from '@/store';
 import { addTodo } from '@/features';
+import { AppSnackbar } from '@/components/snackbar';
 
 export const TodoInput = (): React.JSX.Element => {
   const [isSnackbarVisible, setIsSnackbarVisible] = useState<boolean>(false);
@@ -13,9 +14,13 @@ export const TodoInput = (): React.JSX.Element => {
     setInputText(evt.target.value);
   };
 
+  const handleSnackVisibilityChange = (isVisible: boolean): void => {
+    setIsSnackbarVisible(isVisible);
+  };
+
   const addNewTodo = (): void => {
     if (inputText.trim().length === 0) {
-      setIsSnackbarVisible(true);
+      handleSnackVisibilityChange(true);
       return;
     }
     dispatch(addTodo({ text: inputText, id: uuidv4(), isEdited: false, isCompleted: false }));
@@ -41,12 +46,9 @@ export const TodoInput = (): React.JSX.Element => {
       <Button variant="contained" onClick={addNewTodo}>
         Add
       </Button>
-      <Snackbar
-        open={isSnackbarVisible}
-        autoHideDuration={2000}
-        onClose={() => {
-          setIsSnackbarVisible(false);
-        }}
+      <AppSnackbar
+        handleVisibilityChange={handleSnackVisibilityChange}
+        isVisible={isSnackbarVisible}
         message="Cannot add empty todo, please add something to your todo"
       />
     </Stack>

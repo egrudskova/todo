@@ -16,7 +16,7 @@ export const FilterPanel = (): React.JSX.Element => {
   };
 
   return (
-    <Stack direction="row" alignItems="center" padding={1}>
+    <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" padding={1}>
       <Stats />
       <Filters />
       <Button onClick={handleClearButtonClick}>Clear completed</Button>
