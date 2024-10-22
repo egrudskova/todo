@@ -9,36 +9,42 @@ const initialState: TodosState = {
   todos: todosMock,
 };
 
-const filterTodos = (todos: Todo[], filter: Filter): Todo[] => {
-  switch (filter) {
+const updateFilteredTodosIds = (state: TodosState): void => {
+  let filteredTodos: Todo[];
+  switch (state.activeFilter) {
     case Filter.Active:
-      return todos.filter(({ isCompleted }) => !isCompleted);
+      filteredTodos = state.todos.filter(({ isCompleted }) => !isCompleted);
+      break;
     case Filter.Completed:
-      return todos.filter(({ isCompleted }) => isCompleted);
+      filteredTodos = state.todos.filter(({ isCompleted }) => isCompleted);
+      break;
     default:
-      return todos;
+      filteredTodos = state.todos;
+      break;
   }
+  state.filteredTodosIds = filteredTodos.map((todo) => todo.id);
 };
 
 const todosSlice = createSlice({
   name: 'todo',
   initialState,
   reducers: {
+    updateFilteredTodosIds,
     changeActiveFilter: (state, action: PayloadAction<Filter>) => {
       state.activeFilter = action.payload;
-      state.filteredTodosIds = filterTodos(state.todos, state.activeFilter).map((todo) => todo.id);
+      todosSlice.caseReducers.updateFilteredTodosIds(state);
     },
     addTodo: (state, action: PayloadAction<Todo>) => {
       state.todos.push(action.payload);
-      state.filteredTodosIds = filterTodos(state.todos, state.activeFilter).map((todo) => todo.id);
+      todosSlice.caseReducers.updateFilteredTodosIds(state);
     },
     removeTodo: (state, action: PayloadAction<Pick<Todo, 'id'>>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
-      state.filteredTodosIds = filterTodos(state.todos, state.activeFilter).map((todo) => todo.id);
+      todosSlice.caseReducers.updateFilteredTodosIds(state);
     },
     removeCompletedTodos: (state) => {
       state.todos = state.todos.filter(({ isCompleted }) => !isCompleted);
-      state.filteredTodosIds = filterTodos(state.todos, state.activeFilter).map((todo) => todo.id);
+      todosSlice.caseReducers.updateFilteredTodosIds(state);
     },
     editTodoText: (state, action: PayloadAction<Pick<Todo, 'id' | 'text'>>) => {
       state.todos = state.todos.map((todo) =>
