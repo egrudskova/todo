@@ -1,7 +1,13 @@
 import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { routes } from '@/routes';
+import { ThemeProvider } from '@mui/material';
+import { theme } from '@/styles';
 
-function App(): React.JSX.Element {
-  return <></>;
-}
+const router = createBrowserRouter(routes);
 
-export default App;
+export const App = (): React.JSX.Element => (
+  <ThemeProvider theme={theme}>
+    <RouterProvider router={router} />
+  </ThemeProvider>
+);
