@@ -5,9 +5,8 @@ import { createMockState, renderWithRedux, todosMockTest } from '@/tests/utils.t
 describe('Filter panel component', () => {
   it('should render the Stats, Filters, and Clear completed button', () => {
     renderWithRedux(<FilterPanel />, { preloadedState: createMockState(todosMockTest) });
-    expect(
-      screen.getByText(`${todosMockTest.filter((todo) => !todo.isCompleted).length} items left`)
-    ).toBeInTheDocument();
+    const todoItemsCount = todosMockTest.filter((todo) => !todo.isCompleted).length;
+    expect(screen.getByText(`${todoItemsCount} item${todoItemsCount === 1 ? '' : 's'} left`)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /All/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Active/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Completed' })).toBeInTheDocument();
