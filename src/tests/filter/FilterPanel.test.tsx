@@ -1,6 +1,6 @@
 import { screen, fireEvent } from '@testing-library/react';
-import { FilterPanel } from '../../components';
-import { createMockState, renderWithRedux, todosMockTest } from '../utils.tsx';
+import { FilterPanel } from '@/components';
+import { createMockState, renderWithRedux, todosMockTest } from '@/tests/utils.tsx';
 
 describe('Filter panel component', () => {
   it('should render the Stats, Filters, and Clear completed button', () => {

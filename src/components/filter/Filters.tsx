@@ -1,7 +1,7 @@
-import { Button, Stack } from '@mui/material';
-import { changeActiveFilter, Filter, selectActiveFilter } from '../../features';
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store';
+import { Button, Stack } from '@mui/material';
+import { changeActiveFilter, Filter, selectActiveFilter } from '@/features';
+import { useAppDispatch, useAppSelector } from '@/store';
 
 export const Filters = (): React.JSX.Element => {
   const activeFilter = useAppSelector(selectActiveFilter);

@@ -1,6 +1,6 @@
+import React from 'react';
 import { isRouteErrorResponse, Link, useRouteError } from 'react-router-dom';
 import { Alert, AlertTitle, Button, Container, Typography } from '@mui/material';
-import React from 'react';
 
 export const ErrorPage = (): React.JSX.Element => {
   const error = useRouteError();

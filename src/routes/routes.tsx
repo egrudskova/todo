@@ -1,10 +1,10 @@
 import { RouteObject } from 'react-router-dom';
-import { ErrorPage, Layout, NotFoundPage, TodoPage, WelcomePage } from '../pages';
+import { ErrorPage, LayoutPage, NotFoundPage, TodoPage, WelcomePage } from '@/pages';
 
-const routes: RouteObject[] = [
+export const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Layout />,
+    element: <LayoutPage />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -22,5 +22,3 @@ const routes: RouteObject[] = [
     element: <NotFoundPage />,
   },
 ];
-
-export default routes;

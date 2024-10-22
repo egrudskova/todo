@@ -2,9 +2,9 @@ import React from 'react';
 import { queries, render, RenderResult } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore, Store } from '@reduxjs/toolkit';
-import { reducer, RootState } from '../store';
-import { Filter, Todo } from '../features';
 import { v4 as uuidv4 } from 'uuid';
+import { reducer, RootState } from '@/store';
+import { Filter, Todo } from '@/features';
 
 export const renderWithRedux = (
   component: React.JSX.Element,

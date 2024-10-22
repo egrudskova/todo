@@ -1,5 +1,5 @@
-export { NotFoundPage } from './NotFound.tsx';
-export { Layout } from './Layout.tsx';
-export { TodoPage } from './Todo.tsx';
-export { WelcomePage } from './Welcome.tsx';
-export { ErrorPage } from './Error.tsx';
+export { NotFoundPage } from './NotFoundPage.tsx';
+export { LayoutPage } from './LayoutPage.tsx';
+export { TodoPage } from './TodoPage.tsx';
+export { WelcomePage } from './WelcomePage.tsx';
+export { ErrorPage } from './ErrorPage.tsx';

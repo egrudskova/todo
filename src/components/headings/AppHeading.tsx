@@ -1,5 +1,5 @@
-import { Typography } from '@mui/material';
 import React from 'react';
+import { Typography } from '@mui/material';
 
 export const AppHeading = (): React.JSX.Element => (
   <Typography

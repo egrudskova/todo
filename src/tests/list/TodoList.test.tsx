@@ -1,8 +1,8 @@
-import { TodoList } from '../../components';
-import { createMockState, renderWithRedux, todosMockTest } from '../utils.tsx';
-import { RootState } from '../../store';
+import { TodoList } from '@/components';
+import { createMockState, renderWithRedux, todosMockTest } from '@/tests/utils.tsx';
+import { RootState } from '@/store';
 import { fireEvent, screen } from '@testing-library/react';
-import { TodoPage } from '../../pages';
+import { TodoPage } from '@/pages';
 
 describe('Todo list component', () => {
   it('should render a list of todos for every id', () => {

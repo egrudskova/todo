@@ -1,7 +1,7 @@
 import { screen, fireEvent } from '@testing-library/react';
-import { TodoInput } from '../../components';
-import { addTodo } from '../../features';
-import { createMockState, renderWithRedux } from '../utils.tsx';
+import { TodoInput } from '@/components';
+import { addTodo } from '@/features';
+import { createMockState, renderWithRedux } from '@/tests/utils.tsx';
 
 describe('Todo input component', () => {
   it('should render the input and button', () => {

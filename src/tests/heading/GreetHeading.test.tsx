@@ -1,4 +1,4 @@
-import { GreetHeading } from '../../components';
+import { GreetHeading } from '@/components';
 import { render, screen } from '@testing-library/react';
 
 const mockGetItem = vi.fn();

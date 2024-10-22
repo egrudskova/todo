@@ -1,7 +1,7 @@
-import { Button, InputAdornment, TextField, Typography } from '@mui/material';
-import PersonIcon from '@mui/icons-material/Person';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button, InputAdornment, TextField, Typography } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
 
 export const UsernameInput = (): React.JSX.Element => {
   const storedUserName = localStorage.getItem('username');

@@ -1,12 +1,9 @@
-import { Checkbox, IconButton, ListItem, ListItemText, TextField } from '@mui/material';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { editTodoText, removeTodo, toggleTodoIsCompleted, toggleTodoIsEdited } from '../../features';
-import { Delete, Edit } from '@mui/icons-material';
 import React, { memo, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store';
+import { Checkbox, IconButton, ListItem, ListItemText, TextField } from '@mui/material';
+import { CheckCircle, CheckCircleOutline, Delete, Edit } from '@mui/icons-material';
+import { editTodoText, removeTodo, selectTodoById, toggleTodoIsCompleted, toggleTodoIsEdited } from '@/features';
+import { useAppDispatch, useAppSelector } from '@/store';
 import { ListItemProps } from './types.ts';
-import { selectTodoById } from '../../features';
 
 export const TodoListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
   const todo = useAppSelector((state) => selectTodoById(state, id));
@@ -54,8 +51,8 @@ export const TodoListItem = memo(({ id }: ListItemProps): React.JSX.Element => {
       }
     >
       <Checkbox
-        icon={<CheckCircleOutlineIcon />}
-        checkedIcon={<CheckCircleIcon />}
+        icon={<CheckCircleOutline />}
+        checkedIcon={<CheckCircle />}
         aria-label={'label ' + text}
         checked={isCompleted}
         onChange={() => {

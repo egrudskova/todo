@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { UsernameInput } from '../../components';
+import { UsernameInput } from '@/components';
 
 const mockGetItem = vi.fn();
 const mockSetItem = vi.fn();

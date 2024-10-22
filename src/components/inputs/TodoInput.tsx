@@ -1,8 +1,8 @@
-import { Button, Snackbar, Stack, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { useAppDispatch } from '../../store';
-import { addTodo } from '../../features';
+import { Button, Snackbar, Stack, TextField } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
+import { useAppDispatch } from '@/store';
+import { addTodo } from '@/features';
 
 export const TodoInput = (): React.JSX.Element => {
   const [isSnackbarVisible, setIsSnackbarVisible] = useState<boolean>(false);

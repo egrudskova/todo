@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Stack } from '@mui/material';
-import { useAppDispatch, useAppSelector } from '../../store';
-import { removeCompletedTodos, selectCompletedTodosCount } from '../../features';
+import { useAppDispatch, useAppSelector } from '@/store';
+import { removeCompletedTodos, selectCompletedTodosCount } from '@/features';
 import { Filters } from './Filters.tsx';
 import { Stats } from './Stats.tsx';
 

@@ -1,6 +1,6 @@
 import { screen, fireEvent } from '@testing-library/react';
-import { TodoListItem } from '../../components';
-import { createMockState, renderWithRedux, todosMockTest } from '../utils.tsx';
+import { TodoListItem } from '@/components';
+import { createMockState, renderWithRedux, todosMockTest } from '@/tests/utils.tsx';
 
 describe('Todo list item component', () => {
   const todo = todosMockTest[0];

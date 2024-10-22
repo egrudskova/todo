@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAppSelector } from '../../store';
-import { selectFilteredTodosIds } from '../../features';
-import { TodoListItem } from './TodoListItem.tsx';
 import { List } from '@mui/material';
+import { useAppSelector } from '@/store';
+import { selectFilteredTodosIds } from '@/features';
+import { TodoListItem } from '@/components';
 
 export const TodoList = (): React.JSX.Element => {
   const ids = useAppSelector(selectFilteredTodosIds);

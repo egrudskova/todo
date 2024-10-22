@@ -1,6 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '@/store';
 import { Filter, Todo, TodosState } from './types.ts';
-import { RootState } from '../../store';
 import { todosMock } from './mocks.ts';
 
 const initialState: TodosState = {
