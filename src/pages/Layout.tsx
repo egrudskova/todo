@@ -4,9 +4,12 @@ import React from 'react';
 import { Container, Paper } from '@mui/material';
 
 export const Layout = (): React.JSX.Element => (
-  <Container maxWidth={'sm'}>
-    <AppHeading />
-    <Paper>
+  <Container
+    maxWidth={'sm'}
+    style={{ position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)' }}
+  >
+    <Paper elevation={10} sx={{ padding: '5px' }}>
+      <AppHeading />
       <Outlet />
     </Paper>
   </Container>

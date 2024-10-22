@@ -21,7 +21,7 @@ export const Filters = (): React.JSX.Element => {
         <Button
           key={idx}
           variant="outlined"
-          sx={{ borderColor: activeFilter === filter ? 'blue' : 'transparent' }}
+          sx={{ borderColor: activeFilter === filter ? 'primary.main' : 'transparent' }}
           onClick={() => handleFilterButtonClick(filter)}
         >
           {filter}

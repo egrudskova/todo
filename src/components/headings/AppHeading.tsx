@@ -3,13 +3,16 @@ import React from 'react';
 
 export const AppHeading = (): React.JSX.Element => (
   <Typography
-    variant="subtitle1"
-    style={{
+    variant="h1"
+    sx={{
       textAlign: 'center',
-      margin: 24,
       font: 'status-bar',
-      fontSize: 23,
-      color: 'slateblue',
+      textTransform: 'uppercase',
+      fontWeight: '700',
+      fontSize: '2.5em',
+      lineHeight: '28px',
+      color: 'primary.main',
+      margin: '20px 0',
     }}
   >
     Todo App

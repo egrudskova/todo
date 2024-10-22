@@ -46,7 +46,7 @@ describe('Username input component', () => {
   it('should update username state on input change', () => {
     mockGetItem.mockReturnValueOnce(null);
     render(<UsernameInput />);
-    const inputElement: HTMLInputElement = screen.getByRole('textbox', { name: /Username/i });
+    const inputElement: HTMLInputElement = screen.getByRole('textbox');
     fireEvent.change(inputElement, { target: { value: 'NewUserName' } });
 
     expect(inputElement.value).toBe('NewUserName');

@@ -1,4 +1,5 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, InputAdornment, TextField, Typography } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,11 +27,20 @@ export const UsernameInput = (): React.JSX.Element => {
     <>
       {!storedUserName && (
         <>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" gutterBottom color="secondary.main">
             Enter your name:
           </Typography>
           <TextField
-            label="Username"
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                ),
+              },
+            }}
+            placeholder="Username"
             value={username}
             onKeyUp={handleKeyUp}
             onChange={handleChange}
