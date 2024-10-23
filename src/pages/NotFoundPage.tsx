@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Alert, AlertTitle, Button, Container, Grid2 as Grid, Typography } from '@mui/material';
 
 export const NotFoundPage = (): React.JSX.Element => {
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    navigate('/');
+  }, [navigate]);
+
   return (
     <Container maxWidth={'md'} sx={{ mt: 10, mb: 10 }}>
       <Grid container justifyContent="center" alignItems="center" spacing={2}>
