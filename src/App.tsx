@@ -4,7 +4,7 @@ import { routes } from '@/routes';
 import { ThemeProvider } from '@mui/material';
 import { theme } from '@/styles';
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, { basename: import.meta.env.DEV ? '/' : '/todo/' });
 
 export const App = (): React.JSX.Element => (
   <ThemeProvider theme={theme}>
