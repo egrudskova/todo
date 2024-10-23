@@ -35,3 +35,14 @@ git clone https://github.com/egrudskova/todo.git
 cd todo
 npm i && npm run start
 ```
+
+### Running Tests
+
+```console
+npm run test
+```
+
+### Deployment
+
+[Link](https://egrudskova.github.io/todo/)
+
